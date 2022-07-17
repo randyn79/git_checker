@@ -1,6 +1,12 @@
+#!/usr/bin/env python3
+
 import os
 
 def check_git(path):
+    """Checks the sub-directories in the provided directory path to
+determine if the sub-directory has a .git directory.  If it does, the
+sub-directory name is added to the git_present list.  If it does NOT,
+the sub-directory name is added to the git_not_present list."""
 
     git_present = []
     git_not_present = []
@@ -16,6 +22,8 @@ def check_git(path):
     return git_present, git_not_present
 
 def user_input():
+    """Allows the user to input a path.  If no path is entered, the
+current working directory will be used for the path."""
 
     print()
     print('=' * 11)
@@ -44,6 +52,7 @@ def user_input():
             continue
 
 def print_results(git_present, git_not_present):
+    """Prints the contents of the git_present and git_not_present lists."""
     print()
     print('The following directories have a .git directory:  ')
     print(git_present)
